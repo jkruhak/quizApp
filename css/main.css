@@ -1,0 +1,141 @@
+body, #complete, #questionOne, #questionOne img, #answerDiv {
+	position: relative;
+	/*border: 1px solid black;*/
+}
+
+body {
+	background-image: url(../images/background.jpg);
+	background-repeat: repeat;
+	background-size: 100%;
+	background-opacity: 0.1;
+	height: 100%;
+	width: 100%;
+}
+
+#complete {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 500px;
+	height: 100px;
+}
+
+#instructions {
+	/*display: none;*/
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
+
+#instructions p {
+	text-align: center;
+	font-family: Arial;
+	font-size: 1.5em;
+}
+
+#questionOne {
+	display: none;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
+
+#questionOne img, #questionTwo img {
+	margin: 0 auto;
+	display: block;
+	width: 500px;
+	height: 300px;
+}
+
+.quizQuestions {
+	margin-top: 25px;
+	text-align: center;
+	font-size: 1.75em;
+}
+
+#answerDiv {
+	display: block;
+	margin: 0 auto;
+	margin-top: 25px;
+	width: 250px;
+	height: 150px;
+	font-size: 1.5em;
+}
+
+input {
+	font-size: 5em;
+	margin: 0 0 20px 0;
+}
+
+.correctAnswer {
+	/*display: block;*/
+	display: none;
+	margin: 0 auto;
+	margin-top: 25px;
+	width: 200px;
+	height: 100px;
+}
+
+.correctAnswer p {
+	font-size: 2em;
+	text-align: center;
+}
+
+#questionTwo {
+	display: none;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
+
+#questionThree {
+	display: none;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
+
+#questionThree img, #questionFive img {
+	margin: 0 auto;
+	display: block;
+	width: 300px;
+	height: 300px;
+}
+
+#questionFour {
+	display: none;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
+
+#questionFour img {
+	margin: 0 auto;
+	display: block;
+	width: 400px;
+	height: 300px;
+}
+
+#questionFive {
+	display: none;
+	margin: 0 auto;
+	margin-top: 75px;
+	width: 700px;
+	height: 700px;
+	background-color: gray;
+	opacity: 0.7;
+}
