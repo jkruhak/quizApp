@@ -1,5 +1,5 @@
 body, #complete, #questionOne, #questionOne img, .answerDiv, .button, 
-#scorePage, #finalScore, #correctChoices {
+#scorePage, #finalScore, #finalCorrectAnswers, #correctChoices {
 	position: relative;
 	/*border: 1px solid black;*/
 }
@@ -144,7 +144,7 @@ label {
 	font-size: 3em;
 }
 
-#finalScore {
+#finalScore, #finalCorrectAnswers {
 	margin: 0 auto;
 	margin-top: 25px;
 	width: 300px;
@@ -157,16 +157,22 @@ label {
 	text-align: center;
 }
 
+#finalCorrectAnswers {
+	font-size: 1.5em;
+	margin-top: 10px;
+	text-align: center;
+}
+
 #correctChoices {
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 25px;
 	width: 500px;
 	height: 200px;
 }
 
-#correctChoices {
+#correctChoices p{
 	font-size: 1.2em;
 	text-align: center;
 	margin: 0 auto;
-	padding-top: 20px;
+	padding-top: 10px;
 }
