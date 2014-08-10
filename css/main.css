@@ -1,15 +1,22 @@
-body, #complete, #questionOne, #questionOne img, #answerDiv {
+body, #complete, #questionOne, #questionOne img, .answerDiv, .button, 
+#scorePage, #finalScore, #correctChoices {
 	position: relative;
 	/*border: 1px solid black;*/
 }
 
-body {
+html {
 	background-image: url(../images/background.jpg);
-	background-repeat: repeat;
-	background-size: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 	background-opacity: 0.1;
+}
+
+body {
 	height: 100%;
 	width: 100%;
+	min-width: 500px;
+	min-height: 500px;
+	font-family: "Century Gothic", Calibri, Georgia;
 }
 
 #complete {
@@ -19,30 +26,54 @@ body {
 	height: 100px;
 }
 
-#instructions {
-	/*display: none;*/
+.q1, .q2, .q3, .q4, .q5 {
+	display: none;
+}
+
+.q1, .q2, .q3, .q4, .q5 {
+	position: relative;
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 4px;
+	width: 130px;
+	height: 25px;
+	text-align: center;
+	padding-top: 10px;
+	color: white;
+}
+
+#instructions, #questionOne, #questionTwo, #questionThree, #questionFour, #questionFive, #scorePage {
 	margin: 0 auto;
 	margin-top: 75px;
 	width: 700px;
 	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
+	background-color: #697373;
+	opacity: 0.8;
+}
+
+#questionOne, #questionTwo, #questionThree, #questionFour, #questionFive, #scorePage {
+	display: none;
 }
 
 #instructions p {
 	text-align: center;
-	font-family: Arial;
 	font-size: 1.5em;
 }
 
-#questionOne {
-	display: none;
+#startButton, .submitButton {
+	width: 100px;
+	height: 50px;
+	font-weight: bolder;
+	font-size: 1em;
+	border-radius: 10%;
+	text-align: center;
+}
+
+.button {
 	margin: 0 auto;
 	margin-top: 75px;
-	width: 700px;
-	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
+	width: 100px;
+	height: 50px;	
 }
 
 #questionOne img, #questionTwo img {
@@ -58,18 +89,22 @@ body {
 	font-size: 1.75em;
 }
 
-#answerDiv {
-	display: block;
+.answerDiv {
 	margin: 0 auto;
 	margin-top: 25px;
-	width: 250px;
+	width: 350px;
 	height: 150px;
 	font-size: 1.5em;
+	text-align: center;
 }
 
-input {
+.answerDiv input {
 	font-size: 5em;
 	margin: 0 0 20px 0;
+}
+
+label {
+	display: block;
 }
 
 .correctAnswer {
@@ -86,41 +121,11 @@ input {
 	text-align: center;
 }
 
-#questionTwo {
-	display: none;
-	margin: 0 auto;
-	margin-top: 75px;
-	width: 700px;
-	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
-}
-
-#questionThree {
-	display: none;
-	margin: 0 auto;
-	margin-top: 75px;
-	width: 700px;
-	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
-}
-
 #questionThree img, #questionFive img {
 	margin: 0 auto;
 	display: block;
 	width: 300px;
 	height: 300px;
-}
-
-#questionFour {
-	display: none;
-	margin: 0 auto;
-	margin-top: 75px;
-	width: 700px;
-	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
 }
 
 #questionFour img {
@@ -130,12 +135,38 @@ input {
 	height: 300px;
 }
 
-#questionFive {
-	display: none;
+#scorePage p {
+	font-size: 1em;
+}
+
+#scorePage #score {
+	text-align: center;
+	font-size: 3em;
+}
+
+#finalScore {
 	margin: 0 auto;
-	margin-top: 75px;
-	width: 700px;
-	height: 700px;
-	background-color: gray;
-	opacity: 0.7;
+	margin-top: 25px;
+	width: 300px;
+	height: 100px;
+}
+
+#finalScore p {
+	font-size: 5em;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#correctChoices {
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 500px;
+	height: 200px;
+}
+
+#correctChoices {
+	font-size: 1.2em;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 20px;
 }
