@@ -1,4 +1,4 @@
-body, #complete, #questionOne, #questionOne img, .answerDiv, .button, 
+body, #complete, #questionOne, #questionOne img, .answerDiv, .correctAnswer, .button, 
 #scorePage, #finalScore, #finalCorrectAnswers, #correctChoices {
 	position: relative;
 	/*border: 1px solid black;*/
@@ -60,13 +60,17 @@ body {
 	font-size: 1.5em;
 }
 
-#startButton, .submitButton {
+#startButton, .submitButton, .continueButton {
 	width: 100px;
 	height: 50px;
 	font-weight: bolder;
 	font-size: 1em;
 	border-radius: 10%;
 	text-align: center;
+}
+
+.submitButton, .continueButton {
+	display: none;
 }
 
 .button {
@@ -90,6 +94,7 @@ body {
 }
 
 .answerDiv {
+	display: none;
 	margin: 0 auto;
 	margin-top: 25px;
 	width: 350px;
@@ -108,17 +113,20 @@ label {
 }
 
 .correctAnswer {
-	/*display: block;*/
 	display: none;
 	margin: 0 auto;
 	margin-top: 25px;
-	width: 200px;
-	height: 100px;
+	width: 350px;
+	height: 150px;
+	text-align: center;
 }
 
 .correctAnswer p {
-	font-size: 2em;
-	text-align: center;
+	font-size: 1.2em;
+}
+
+.correctAnswer span {
+	font-size: 1em;
 }
 
 #questionThree img, #questionFive img {

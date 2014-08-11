@@ -53,12 +53,28 @@ correctAnswerCount.totalCorrectAnswers = function() {
 	return correctAnswerCount.correctAnswer;
 };
 
+var answerShow = function() {
+	$(".answerDiv").hide();
+	$(".correctAnswer").fadeIn(500);
+	$(".submitButton").hide();
+	$(".continueButton").show();
+};
+
+var questionShow = function() {
+	$(".continueButton").hide();
+	$(".correctAnswer").hide();
+	$(".answerDiv").show();
+	$(".submitButton").show();
+};
+
 $(document).ready(function() {
 
-	/*--- Question 1 ---*/
+	
 	$("#instructions").on("click", "#startButton", function() {
 		$("#instructions").hide();
 		$("#questionOne").show();
+		$(".answerDiv").show();
+		$(".submitButton").show();
 		$(".q1").show();
 		$(".q1").text("QUESTION 1");
 		$(".q2").hide();
@@ -67,52 +83,80 @@ $(document).ready(function() {
 		$(".q5").hide();
 	});
 
-	/*--- Question 2 ---*/
+	/*--- Question 1 ---*/
 	$("#questionOne").on("click", ".submitButton", function() {
-		$("#questionOne").hide();
-		$("#questionTwo").show();
+		answerShow();
 		$(".q1").text("QUESTION 1");
-		$(".q2").show();
-		$(".q2").text("QUESTION 2");
 		answerOneCheck();
-		console.log(correctAnswerCount.totalCorrectAnswers());
+		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
 	});
 
-	/*--- Question 3 ---*/
+	$("#questionOne").on("click", ".continueButton", function() {
+		$("#questionOne").hide();
+		$("#questionTwo").show();
+		$(".q2").show();
+		$(".q2").text("QUESTION 2");
+		questionShow();
+	});
+
+	/*--- Question 2 ---*/
 	$("#questionTwo").on("click", ".submitButton", function() {
+		answerShow();
+		answerTwoCheck();
+		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+	});
+
+	$("#questionTwo").on("click", ".continueButton", function()	{
 		$("#questionTwo").hide();
 		$("#questionThree").show();
 		$(".q3").show();
 		$(".q3").text("QUESTION 3");
-		answerTwoCheck();
-		console.log(correctAnswerCount.totalCorrectAnswers());
+		questionShow();
 	});
 
-	/*--- Question 4 ---*/
+	/*--- Question 3 ---*/
 	$("#questionThree").on("click", ".submitButton", function() {
+		answerShow();
+		answerThreeCheck();
+		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+	});
+
+	$("#questionThree").on("click", ".continueButton", function()	{
 		$("#questionThree").hide();
 		$("#questionFour").show();
 		$(".q4").show();
 		$(".q4").text("QUESTION 4");
-		answerThreeCheck();
-		console.log(correctAnswerCount.totalCorrectAnswers());
+		questionShow();
 	});
 
-	/*--- Question 5 ---*/
+	/*--- Question 4 ---*/
 	$("#questionFour").on("click", ".submitButton", function() {
+		answerShow();
+		answerFourCheck();
+		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+	});	
+
+	$("#questionFour").on("click", ".continueButton", function()	{
 		$("#questionFour").hide();
 		$("#questionFive").show();
 		$(".q5").show();
 		$(".q5").text("QUESTION 5");
-		answerFourCheck();
-		console.log(correctAnswerCount.totalCorrectAnswers());
+		questionShow();
+	});
+	
+	/*--- Question 5 ---*/
+	$("#questionFive").on("click", ".submitButton", function() {
+		answerShow();
+		answerFiveCheck();
+		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
 	});
 
-	/*--- Score pge ---*/
-	$("#questionFive").on("click", ".submitButton", function() {
+	$("#questionFive").on("click", ".continueButton", function() {
 		$("#questionFive").hide();
+		$(".continueButton").hide();
+		$(".correctAnswer").hide();
 		$("#scorePage").show();
-		answerFiveCheck();
+		$(".submitButton").show();
 		$("#finalCorrectAnswers p").text("You got " + correctAnswerCount.totalCorrectAnswers() + "/5 questions right");
 		$("#finalScore p").text(correctAnswerCount.totalScore() + "%");
 	});
