@@ -1,56 +1,35 @@
-var correctAnswerCount = {
+var gameState = {
 	score: 0,
-	correctAnswer: 0
+	currentQuestion: 0
 };
 
-/*--- Question 1 Answer Check ---*/
-var answerOneCheck = function() {
+var stateUpdate = function () {
+	gameState.score += 20;
+	gameState.currentQuestion++;
+	$(".correctAnswer span").text("Correct answers: " + gameState.currentQuestion + "/5");
+};
+
+var answerCheck = function() {
+	/*--- Question 1 Answer Check ---*/
 	if(document.questionOneForm.answers1[0].checked == true) {
-		correctAnswerCount.score += 20;
-		correctAnswerCount.correctAnswer++;
+		stateUpdate();
 	} 
-};
-
-/*--- Question 2 Answer Check ---*/
-var answerTwoCheck = function() {
-	if(document.questionTwoForm.answers2[2].checked == true) {
-		correctAnswerCount.score += 20;
-		correctAnswerCount.correctAnswer++;
+	/*--- Question 2 Answer Check ---*/
+	else if(document.questionTwoForm.answers2[2].checked == true) {
+		stateUpdate();
 	}
-};
-
-/*--- Question 3 Answer Check ---*/
-var answerThreeCheck = function() {
-	if(document.questionThreeForm[1].checked == true) {
-		correctAnswerCount.score += 20;
-		correctAnswerCount.correctAnswer++;
+	/*--- Question 3 Answer Check ---*/
+	else if(document.questionThreeForm.answers3[1].checked == true) {
+		stateUpdate();
 	}
-};
-
-/*--- Question 4 Answer Check ---*/
-var answerFourCheck = function() {
-	if(document.questionFourForm[3].checked == true) {
-		correctAnswerCount.score += 20;
-		correctAnswerCount.correctAnswer++;
+	/*--- Question 4 Answer Check ---*/
+	else if(document.questionFourForm.answers4[3].checked == true) {
+		stateUpdate();
 	}
-};
-
-/*--- Question 5 Answer Check ---*/
-var answerFiveCheck = function() {
-	if(document.questionFiveForm[2].checked == true) {
-		correctAnswerCount.score += 20;
-		correctAnswerCount.correctAnswer++;
+	/*--- Question 5 Answer Check ---*/
+	else if(document.questionFiveForm.answers5[2].checked == true) {
+		stateUpdate();
 	}
-};
-
-/*--- Score ---*/
-correctAnswerCount.totalScore = function() {
-	return correctAnswerCount.score;
-};
-
-/*--- Correct Answers ---*/
-correctAnswerCount.totalCorrectAnswers = function() {
-	return correctAnswerCount.correctAnswer;
 };
 
 var answerShow = function() {
@@ -69,86 +48,83 @@ var questionShow = function() {
 
 $(document).ready(function() {
 
+	/*--- Window resize ---*/
+	function setHeight() {
+		windowHeight = $(window).innerHeight();
+		$('#windowBox').css('min-height', windowHeight);
+	};
 	
+	setHeight();
+
+	$(window).resize(function() {
+		setHeight();
+	});
+
+
 	$("#instructions").on("click", "#startButton", function() {
 		$("#instructions").hide();
 		$("#questionOne").show();
 		$(".answerDiv").show();
 		$(".submitButton").show();
-		$(".q1").show();
-		$(".q1").text("QUESTION 1");
-		$(".q2").hide();
-		$(".q3").hide();
-		$(".q4").hide();
-		$(".q5").hide();
+		$("#startButton").hide();
 	});
 
 	/*--- Question 1 ---*/
 	$("#questionOne").on("click", ".submitButton", function() {
+		answerCheck();
 		answerShow();
-		$(".q1").text("QUESTION 1");
-		answerOneCheck();
-		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+		//$(".q1").text("QUESTION 1");		
 	});
 
 	$("#questionOne").on("click", ".continueButton", function() {
 		$("#questionOne").hide();
 		$("#questionTwo").show();
-		$(".q2").show();
-		$(".q2").text("QUESTION 2");
 		questionShow();
 	});
 
 	/*--- Question 2 ---*/
 	$("#questionTwo").on("click", ".submitButton", function() {
 		answerShow();
-		answerTwoCheck();
-		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+		answerCheck();
 	});
 
 	$("#questionTwo").on("click", ".continueButton", function()	{
 		$("#questionTwo").hide();
 		$("#questionThree").show();
-		$(".q3").show();
-		$(".q3").text("QUESTION 3");
 		questionShow();
 	});
 
 	/*--- Question 3 ---*/
 	$("#questionThree").on("click", ".submitButton", function() {
 		answerShow();
-		answerThreeCheck();
-		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+		answerCheck();
+		
 	});
 
 	$("#questionThree").on("click", ".continueButton", function()	{
 		$("#questionThree").hide();
 		$("#questionFour").show();
-		$(".q4").show();
-		$(".q4").text("QUESTION 4");
 		questionShow();
 	});
 
 	/*--- Question 4 ---*/
 	$("#questionFour").on("click", ".submitButton", function() {
 		answerShow();
-		answerFourCheck();
-		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+		answerCheck();
+		
 	});	
 
 	$("#questionFour").on("click", ".continueButton", function()	{
 		$("#questionFour").hide();
 		$("#questionFive").show();
-		$(".q5").show();
-		$(".q5").text("QUESTION 5");
 		questionShow();
 	});
 	
 	/*--- Question 5 ---*/
 	$("#questionFive").on("click", ".submitButton", function() {
 		answerShow();
-		answerFiveCheck();
-		$(".correctAnswer span").text("Correct answers: " + correctAnswerCount.totalCorrectAnswers() + "/5");
+		answerCheck();
+		
 	});
 
 	$("#questionFive").on("click", ".continueButton", function() {
@@ -157,12 +133,14 @@ $(document).ready(function() {
 		$(".correctAnswer").hide();
 		$("#scorePage").show();
 		$(".submitButton").show();
-		$("#finalCorrectAnswers p").text("You got " + correctAnswerCount.totalCorrectAnswers() + "/5 questions right");
-		$("#finalScore p").text(correctAnswerCount.totalScore() + "%");
+		$("#finalCorrectAnswers p").text("You got " + gameState.currentQuestion + "/5 questions right");
+		$("#finalScore p").text(gameState.score + "%");
 	});
 
 	/*--- New game ---*/
 	$("#scorePage").on("click", ".submitButton", function() {
 		location.reload(true);
 	});
+
 });
+
