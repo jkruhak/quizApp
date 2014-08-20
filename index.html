@@ -2,187 +2,37 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>M*A*S*H QUIZ</title>
+	<title>M*A*S*H</title>
 
-	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-
+	<script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
-	
-	<header></header>
-
 	<section>
-		
-		<div id="windowBox"> 
+		<div id="windowBox">
 			<div class="main">
-				<div id="instructions">
-					<br><p>Do you remember M*A*S*H, show about funny doctors and nurses that found themselves in the middle of a war?</p><br>
-					<p>Let's see how much you remember about one of the greates shows of its time.</p><br><br>
-					<br><p>Click START to take this short quiz about the show</p>
+				<div id="start">
+					<p>Quiz about one of the greates show of its time. Let's see how much you remember</p>
+				</div>
 				
-					<div class="button">
-						<input type="submit" id="startButton" value="START">
-					</div>
-
-				</div>
-			
-
-				<!-- QUESTION 1 -->
-				<div id="questionOne" class="question">
-					<img src="images/question1.jpg" alt="Question One">
+				<div id="question">
 				
-					<p class="quizQuestions">Where was the M*A*S*H team stationed?</p>
-							
-					<form name="questionOneForm" class="answerDiv">
-						<label><input type="radio" name="answers1" id="answer1a" value="choice1a" /> South Korea </label>
-						<label><input type="radio" name="answers1" id="answer1b" value="choice1b" /> Vietnam </label>
-						<label><input type="radio" name="answers1" id="answer1c" value="choice1c" /> Iraq </label>
-						<label><input type="radio" name="answers1" id="answer1d" value="choice1d" /> Russia </label>
-					</form>
-
-					<div class="correctAnswer">
-						<p>M*A*S*H team was stationed in Uijengbu, South Korea during the Korean war.</p><br><br>
-						<span></span>
-					</div>
-
-					<div class="button">
-						<input type="submit" class="submitButton" value="SUBMIT">
-						<input type="submit" class="continueButton" value="CONTINUE">
+					<p></p>			
+					<table id="questionTable"></table>
+								
+					<div id="button">
+						<input type="submit" id="submitButton" value="SUBMIT">
 					</div>
 				</div>
 
-				<!-- QUESTION 2 -->
-				<div id="questionTwo" class="question">
-					<img src="images/question2.jpg" alt="Question Two">
-			
-					<p class="quizQuestions">What was Corporal O'Reiley's favorite drink?</p>
-			
-					<form name="questionTwoForm" class="answerDiv">
-						<label><input type="radio" name="answers2" id="answer2a" value="choice2a" /> Beer </label>
-						<label><input type="radio" name="answers2" id="answer2b" value="choice2b" /> Orange Soda </label>
-						<label><input type="radio" name="answers2" id="answer2c" value="choice2c" /> Grape Nehi </label>
-						<label><input type="radio" name="answers2" id="answer2d" value="choice2d" /> Coca-Cola </label>
-					</form>
-
-					<div class="correctAnswer">
-						<p>Corporal O'Reiley's favorite drink at Rosie's Bar was Grape Nehi.</p><br><br>
-						<span></span>
-					</div>
-					
-					<div class="button">
-						<input type="submit" class="submitButton" value="SUBMIT">
-						<input type="submit" class="continueButton" value="CONTINUE">
-					</div>
-
+				<div id="end">
 				</div>
-
-				<!-- QUESTION 3 -->
-				<div id="questionThree" class="question">
-					<img src="images/question3.jpg" alt="Question Three">
-
-					<p class="quizQuestions">Which actor played the role of Hawkeye?</p>
-				
-					<form name="questionThreeForm" class="answerDiv">
-						<label><input type="radio" name="answers3" class="answers" value="choice3a" /> Jamie Farr </label>
-						<label><input type="radio" name="answers3" class="answers" value="choice3b" /> Alan Alda </label>
-						<label><input type="radio" name="answers3" class="answers" value="choice3c" /> Larry Linville </label>
-						<label><input type="radio" name="answers3" class="answers" value="choice3d" /> Charles S. Dubin </label>
-					</form>
-
-					<div class="correctAnswer">
-						<p>Role of Hawkeye Pierce was played by Alan Alda.</p><br><br>
-						<span></span>
-					</div>
-					
-					<div class="button">
-						<input type="submit" class="submitButton" value="SUBMIT">
-						<input type="submit" class="continueButton" value="CONTINUE">
-					</div>
-		
-				</div>
-
-				<!-- QUESTION 4 -->
-				<div id="questionFour" class="question">
-					<img src="images/question4.jpg" alt="Question Four">
-
-					<p class="quizQuestions">What happened to Lt. Colonel Henry Blake?</p>
-			
-					<form name="questionFourForm" class="answerDiv">
-						<label><input type="radio" name="answers4" class="answers" value="choice4a" /> He was sent home </label>
-						<label><input type="radio" name="answers4" class="answers" value="choice4b" /> He was sent to a different unit </label>
-						<label><input type="radio" name="answers4" class="answers" value="choice4c" /> He went AWOL </label>
-						<label><input type="radio" name="answers4" class="answers" value="choice4d" /> He died in a plane crash </label>
-					</form>
-
-					<div class="correctAnswer">
-						<p>Lt. Colonel Henry Blake died in a plane crash on his way back to the United States.</p><br><br>
-						<span></span>
-					</div>
-
-					<div class="button">
-						<input type="submit" class="submitButton" value="SUBMIT">
-						<input type="submit" class="continueButton" value="CONTINUE">
-					</div>
-	
-				</div>
-
-				<!-- QUESTION 5 -->
-				<div id="questionFive" class="question">
-					<img src="images/question5.jpg" alt="Question Five">
-
-					<p class="quizQuestions">What was Major Margaret Houlihan's nickname?</p>
-
-					<form name="questionFiveForm" class="answerDiv">
-						<label><input type="radio" name="answers5" class="answers" value="choice5a" /> Hotstuff </label>
-						<label><input type="radio" name="answers5" class="answers" value="choice5b" /> Hell nurse </label>
-						<label><input type="radio" name="answers5" class="answers" value="choice5c" /> Hotlips </label>
-						<label><input type="radio" name="answers5" class="answers" value="choice5d" /> Maggie </label>
-					</form>
-
-					<div class="correctAnswer">
-						<p>Major Margaret Houlihan's nickname was Hotlips.</p><br><br>
-						<span></span>
-					</div>
-
-					<div class="button">
-						<input type="submit" class="submitButton" value="SUBMIT">
-						<input type="submit" class="continueButton" value="FINISH">
-					</div>
-
-				</div>
-
-<!-- SCORE PAGE -->
-		<div id="scorePage">
-			<br><p id="score">Your final score</p>
-
-			<div id="finalScore"><p></p></div>
-			<div id="finalCorrectAnswers"><p></p></div>
-
-			<div id="correctChoices">
-				<p>Correct answers are:</p>
-				<p>Question 1: M*A*S*H 4077th was stationed in South Korea.</p>
-				<p>Question 2: Corporal O'Reiley's favorite drink was grape nehi.</p>
-				<p>Question 3: Alan Alda played the role of Hawkeye.</p>
-				<p>Question 4: Lt. Colonel Henry Blake died in a plane crash on.</p>
-				<p>Question 5: Major Margaret Houlihan's nickname was Hotlips.</p>
-			</div>
-
-			<div class="button">
-				<input type="submit" class="submitButton" value="NEW GAME">
 			</div>
 		</div>
 
-			</div> <!-- main -->
-		</div> <!-- window box -->
-			
-	
 	</section>
-
-	<footer></footer>
-
 </body>
 </html>
