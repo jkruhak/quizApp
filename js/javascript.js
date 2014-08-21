@@ -62,7 +62,7 @@ var stateUpdate = function () {
 };
 
 var answerCheck = function() {
-	if($(document.getElementByName("question'+[gameState.index+1]+'").val() == answers[gameState.index]) {
+	if($(document.getElementByName("question'+[gameState.index+1]+'").val() == answers[gameState.index])) {
 		stateUpdate();
 	}
 };
