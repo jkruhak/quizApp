@@ -1,6 +1,10 @@
 var answers = ["South Korea", "Grape Nehi", "Alan Alda", "He died in a plane crash", "Hotlips"];
 
-var question = ["Where was the M*A*S*H team stationed?", "What was Corporal O'Riley's favorite drink?", "Which actor played the role of Hawkeye?", "What happend to Lt. Colonel Henry Blake?", "What was Major Margaret Houlihan's nickname?"];
+var question = ["Where was the M*A*S*H team stationed?", 
+				"What was Corporal O'Riley's favorite drink?", 
+				"Which actor played the role of Hawkeye?", 
+				"What happend to Lt. Colonel Henry Blake?", 
+				"What was Major Margaret Houlihan's nickname?"];
 
 var choices = [["South Korea", "Vietnam", "Iraq", "Russia"],
 			  ["Beer", "Orange Soda", "Grape Nehi", "Coca-Cola"],
@@ -20,21 +24,17 @@ var gameState = {
 	index: 0
 };
 
-function createQuestion(question, option) {
-	this.question = question;
-	this.option = option;
-}
-
 var insertQuestion = function() {
 	clearQuestion();
 	if(gameState.index >= question.length) {
-		document.getElementById("question").innerHTML = "<div>Quiz End, Thank you</div>";
+		document.getElementById("question").style.display="none";
+		document.getElementById("end").style.display="block";
+
 		return false;
-	}
-	else {
+	} else {
 		insertOptions();
-		
 		gameState.index++;	
+		answerCheck();
 	}
 };
 
@@ -44,25 +44,38 @@ var insertOptions = function() {
 
 	for(var i = 0; i<4; i++) {
 		var radioValue = $("#questionTable tr").length + 1;
-		var nameValue = $("#questionTable tr").length + 1;
-		$("#question #questionTable").append("<tr><td>" + "<input type='radio' name='question' value='choice"+radioValue+"'>" + "</td>" + "<td>" + choices[gameState.index][i] + "</td></tr>");
-	}		
+	
+		$("#questionTable").append("<tr><td>" + "<input type='radio' name='question"+[gameState.index+1]+"' value='choice"+radioValue+"'>" + "</td>" + "<td>" + choices[gameState.index][i] + "</td></tr>");
+	}
 };
 
 var clearQuestion = function() {
-	var questionTable = document.getElementById("questionTable");
-	var rowCount = questionTable.rows.length-1;
+	document.getElementById("questionTable").innerHTML = "";
+	document.getElementById("start").style.display="none";
+	$("#question p").text("");
+};
 
-	$("#start").remove();
+var stateUpdate = function () {
+	gameState.score += 20;
+	gameState.currentQuestion++;
+	$("#end p").text("Correct answers: " + gameState.score + "/5");
+};
 
-	for(var x = rowCount; x >= 0; x--) {
-		questionTable.deleteRow(x);
+var answerCheck = function() {
+	if($(document.getElementByName("question'+[gameState.index+1]+'").val() == answers[gameState.index]) {
+		stateUpdate();
 	}
+};
 
-	$("#question p").text(""); 
+gameState.totalScore = function() {
+	return gameState.score;
 };
 
 $(document).ready(function() {
+	$(window).load(function() {
+		document.getElementById("start").style.display="block";
+		document.getElementById("end").style.display="none";
+	});
 
 	/*--- Window resize ---*/
 	function setHeight() {
@@ -76,8 +89,14 @@ $(document).ready(function() {
 		setHeight();
 	});
 
+	/*--- Next Question ---*/
 	$("#question").on("click", "#submitButton", function() {
 		insertQuestion();
 	});
 
-});
+	/*--- New Game ---*/
+	$("#end").on("click", "#newGame", function() {
+		location.reload(true);
+	});
+
+});		

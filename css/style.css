@@ -60,23 +60,26 @@ table {
 	text-align: left;
 }
 
-#button {
+.button {
 	margin: 0 auto;
 	margin-top: 25px;
 	height: 25px;
 	width: 62px;
 }
 
-#submitButton, .continueButton {
+#submitButton, #newGame {
 	margin: 0 auto;
+	margin-top: 25px;
 	height: 25px;
 	text-align: center;
 	border-radius: 10%;
 }
 
+
+
 #end {
-	display: none;
+/*	display: none;*/
 	margin: 0 auto;
-	width: 500px;
-	height: 250px;
+	width: 55%;
+	height: 75%;
 }
