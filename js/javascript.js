@@ -1,4 +1,4 @@
-var answers = ["South Korea", "Grape Nehi", "Alan Alda", "He died in a plane crash", "Hotlips"];
+var answers = ["choice1", "choice3", "choice2", "choice4", "choice3"];
 
 var question = ["Where was the M*A*S*H team stationed?", 
 				"What was Corporal O'Riley's favorite drink?", 
@@ -21,21 +21,22 @@ var images = ["<img src='images/question1.jpg' alt='Question One'>",
 var gameState = {
 	score: 0,
 	currentQuestion: 0,
+	correctAnswers: 0,
 	index: 0
 };
 
 var insertQuestion = function() {
 	clearQuestion();
+	
 	if(gameState.index >= question.length) {
 		document.getElementById("question").style.display="none";
 		document.getElementById("end").style.display="block";
-
 		return false;
 	} else {
 		insertOptions();
-		gameState.index++;	
-		answerCheck();
+		gameState.index++;
 	}
+
 };
 
 var insertOptions = function() {
@@ -51,32 +52,19 @@ var insertOptions = function() {
 
 var clearQuestion = function() {
 	document.getElementById("questionTable").innerHTML = "";
-	document.getElementById("start").style.display="none";
 	$("#question p").text("");
 };
 
 var stateUpdate = function () {
 	gameState.score += 20;
-	gameState.currentQuestion++;
-	$("#end p").text("Correct answers: " + gameState.score + "/5");
+	gameState.correctAnswers++;
 };
 
-var answerCheck = function() {
-	if($(document.getElementByName("question'+[gameState.index+1]+'").val() == answers[gameState.index])) {
-		stateUpdate();
-	}
-};
-
-gameState.totalScore = function() {
-	return gameState.score;
+gameState.totalCorrectAnswers = function() {
+	return gameState.correctAnswers;
 };
 
 $(document).ready(function() {
-	$(window).load(function() {
-		document.getElementById("start").style.display="block";
-		document.getElementById("end").style.display="none";
-	});
-
 	/*--- Window resize ---*/
 	function setHeight() {
 		windowHeight = $(window).innerHeight();
@@ -89,14 +77,43 @@ $(document).ready(function() {
 		setHeight();
 	});
 
+	$(window).load(function() {
+		document.getElementById("start").style.display="block";
+		document.getElementById("question").style.display="none";
+		document.getElementById("end").style.display="none";
+	});
+
+	/*--- Start Quiz ---*/
+	$("#start").on("click", "#startGame", function() {
+		document.getElementById("start").style.display="none";
+		document.getElementById("question").style.display="block";
+		insertQuestion();
+	});
+
+	/*--- Correct choice ---*/
+	$("#questionTable").on("click", function() {
+  		if($('input[name=question1]:checked').val() === "choice1") {
+  			gameState.correctAnswers++;	
+  		} else if ($('input[name=question2]:checked').val() === "choice3") {
+  			gameState.correctAnswers++;
+  		} else if ($('input[name=question3]:checked').val() === "choice2") {
+  			gameState.correctAnswers++;
+  		} else if ($('input[name=question4]:checked').val() === "choice4") {
+  			gameState.correctAnswers++;
+  		} else if ($('input[name=question5]:checked').val() === "choice3") {
+  			gameState.correctAnswers++;
+  		}
+	});
+
 	/*--- Next Question ---*/
 	$("#question").on("click", "#submitButton", function() {
 		insertQuestion();
+		//$("#end p").text("Correct answers: " + gameState.totalCorrectAnswers() + "/5");
+		$("#right p").text(gameState.correctAnswers);
 	});
 
 	/*--- New Game ---*/
 	$("#end").on("click", "#newGame", function() {
 		location.reload(true);
 	});
-
 });		

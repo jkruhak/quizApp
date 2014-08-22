@@ -1,4 +1,4 @@
-html, body, section, #start, .question, table, #button, .submitButton, .continueButton, #end {
+html, body, header, section, #start, #header, #left, #center, #right, .question, table, #button, .submitButton, .continueButton, #end {
 	position: relative;
 	/*border: 1px solid black;*/
 }
@@ -7,6 +7,36 @@ body {
 	font-family: "Lucida Console";
 	font-size: em;
 	background-color: #697373;
+}
+
+#header {
+	margin: 0 auto;
+	margin-top: 20px;
+	height: 40px;
+	width: 75%;
+}
+
+#left {
+	float: left;
+	height: 40px;
+	width: 25%;
+	text-align: center;
+}
+
+#center {
+	margin: 0 auto;
+	height: 40px;
+	width: 25%;
+	text-align: center;
+	font-size: 3em;
+}
+
+#right {
+	float: right;
+	height: 40px;
+	width: 25%;
+	margin-top: -42px;
+	text-align: center;
 }
 
 #windowBox {
@@ -27,8 +57,8 @@ body {
 
 #start {
 	margin: 0 auto;
-	width: 500px;
-	height: 250px;
+	width: 75%;
+	height: 50%;
 }
 
 #start p {
@@ -36,6 +66,7 @@ body {
 }
 
 #question {
+	display:;
 	margin: 0 auto;
 	width: 50%;
 	height: 75%;
@@ -67,7 +98,7 @@ table {
 	width: 62px;
 }
 
-#submitButton, #newGame {
+#startGame, #submitButton, #newGame {
 	margin: 0 auto;
 	margin-top: 25px;
 	height: 25px;
