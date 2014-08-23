@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<div id="header">
-			<div id="left">Current Question</div>
+			<div id="left">Current Question<br><p></p></div>
 			<div id="center">M*A*S*H</div>
 			<div id="right">Correct Answers<br><p></p></div>
 		</div>
@@ -22,6 +22,7 @@
 		<div id="windowBox">
 			<div class="main">
 				<div id="start">
+					<img src="images/mash.jpg" alt="M*A*S*H Team">
 					<p>Quiz about one of the greates shows of its time.</p>
 					<p>Let's see how much you remember</p>
 					<div class="button">
@@ -32,8 +33,10 @@
 				
 				<div id="question">
 				
-					<p></p>			
+					<p id="newQuestion"></p>			
 					<table id="questionTable"></table>
+					<p id="correctChoice"></p>
+
 					<div class="button">
 						<input type="submit" id="submitButton" value="SUBMIT">
 					</div>
