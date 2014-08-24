@@ -113,7 +113,9 @@ table {
 	border-radius: 10%;
 }
 
-
+#newGame {
+	display: none;
+}
 
 #end {
 	display: none;

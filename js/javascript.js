@@ -31,6 +31,8 @@ var insertQuestion = function() {
 	if(gameState.index >= question.length) {
 		document.getElementById("question").style.display="none";
 		document.getElementById("end").style.display="block";
+		document.getElementById("newGame").style.display="block";
+		document.getElementById("submitButton").style.display="none";
 		return false;
 	} else {
 		insertOptions();
@@ -38,10 +40,7 @@ var insertQuestion = function() {
 		gameState.currentQuestion++;
 	}
 	$("#left p").text(gameState.currentQuestion + "/5");
-
 };
-
-
 
 var insertOptions = function() {
 	$("#newQuestion").text(question[gameState.index]);
@@ -67,7 +66,6 @@ var stateUpdate = function () {
 var answerCheck = function() {
 	
 	if($('input[name=question1]:checked').val() === "choice1") {
-		console.log("if statement");
 		stateUpdate();
 	} else if ($('input[name=question2]:checked').val() === "choice3") {
 		stateUpdate();
@@ -78,6 +76,20 @@ var answerCheck = function() {
 	} else if ($('input[name=question5]:checked').val() === "choice3") {
 		stateUpdate();
 	}
+};
+
+var nextQuestion = function() {
+	document.getElementById("start").style.display="none";
+	document.getElementById("question").style.display="block";
+	
+	answerCheck();
+	insertQuestion();
+	$("#end p").text("Your final score is " + gameState.score + "%");
+	$("#right p").text(gameState.correctAnswers);
+};
+
+var newGame = function() {
+	location.reload(true);
 };
 
 $(document).ready(function() {
@@ -93,47 +105,20 @@ $(document).ready(function() {
 		setHeight();
 	});
 
-	/*--- Start Quiz ---*/
-	$("#start").on("click", "#startGame", function() {
-		document.getElementById("start").style.display="none";
-		document.getElementById("question").style.display="block";
-		insertQuestion();
-	});
-
-	/*--- Correct choice ---*/
-	/*$("#questionTable").on("click", function() {
-  		if($('input[name=question1]:checked').val() === "choice1") {
-  			stateUpdate();
-  		} else if ($('input[name=question2]:checked').val() === "choice3") {
-  			stateUpdate();
-  		} else if ($('input[name=question3]:checked').val() === "choice2") {
-  			stateUpdate();
-  		} else if ($('input[name=question4]:checked').val() === "choice4") {
-  			stateUpdate();
-  		} else if ($('input[name=question5]:checked').val() === "choice3") {
-  			stateUpdate();
-  		}
-  	});*/
-
 	/*--- Next Question ---*/
-	$("#question").on("click", "#submitButton", function() {
-		insertQuestion();
-		answerCheck();
-		$("#end p").text("Your final score is " + gameState.score + "%");
-		$("#right p").text(gameState.correctAnswers);
-	});
-
-	/*$("#question").on("keypress", function(event) {
-		if(event.which == '13') {
-			insertQuestion();
-			answerCheck();
-			$("#end p").text("Your final score is " + "<br>" + gameState.score);
-			$("#right p").text(gameState.correctAnswers);
-		}
-	});*/
+	$("body").on("click", "#submitButton", nextQuestion);
 
 	/*--- New Game ---*/
-	$("#end").on("click", "#newGame", function() {
-		location.reload(true);
+	$(".main").on("click", "#newGame", newGame);
+
+	$("body").on("keypress", function(event) {
+		if(event.which == '13') {
+			event.preventDefault();
+			nextQuestion();
+		}
+		if(event.which == '110') {
+			event.preventDefault();
+			newGame();
+		}
 	});
 });		
