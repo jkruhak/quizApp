@@ -101,7 +101,7 @@ $(document).ready(function() {
 	});
 
 	/*--- Correct choice ---*/
-	$("#questionTable").on("click", function() {
+	/*$("#questionTable").on("click", function() {
   		if($('input[name=question1]:checked').val() === "choice1") {
   			stateUpdate();
   		} else if ($('input[name=question2]:checked').val() === "choice3") {
@@ -113,12 +113,12 @@ $(document).ready(function() {
   		} else if ($('input[name=question5]:checked').val() === "choice3") {
   			stateUpdate();
   		}
-  	});
+  	});*/
 
 	/*--- Next Question ---*/
 	$("#question").on("click", "#submitButton", function() {
 		insertQuestion();
-		
+		answerCheck();
 		$("#end p").text("Your final score is " + gameState.score + "%");
 		$("#right p").text(gameState.correctAnswers);
 	});
