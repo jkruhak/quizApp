@@ -63,7 +63,7 @@ var nextQuestion = function() {
 	console.log("Percentage is " + gameState.score);
 	console.log("Correct answers are " + gameState.correctAnswers);
 
-
+	$("#left p").text(gameState.currentQuestion+1 + "/" + quizSetup.length);
 };
 
 var playGame = function() {
@@ -75,7 +75,7 @@ var playGame = function() {
 	}
 	
 	gameState.currentQuestion++;
-	
+
 	$("#right p").text(gameState.correctAnswers);
 
 	if(gameState.currentQuestion >= quizSetup.length) {
@@ -88,7 +88,7 @@ var playGame = function() {
 	} else {
 		nextQuestion();
 	}
-	
+
 };
 
 $(document).ready(function() {
@@ -107,6 +107,7 @@ $(document).ready(function() {
 	$("#start").on("click", "#startGame", function() {
 		$("#start").hide();
 		$("#question").show();
+
 		nextQuestion();
 	});
 
