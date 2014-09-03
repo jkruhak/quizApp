@@ -60,16 +60,11 @@ var nextQuestion = function() {
 
 	choices();
 
-	console.log("Percentage is " + gameState.score);
-	console.log("Correct answers are " + gameState.correctAnswers);
-
 	$("#left p").text(gameState.currentQuestion+1 + "/" + quizSetup.length);
 };
 
 var playGame = function() {
 	if($('input:radio:checked').val() == quizSetup[gameState.currentQuestion]["answer"]) {
-		console.log($('input:radio:checked').val());
-		console.log(quizSetup[gameState.currentQuestion]["answer"]);
 		gameState.score += 20;
 		gameState.correctAnswers++;
 	}
@@ -88,7 +83,14 @@ var playGame = function() {
 	} else {
 		nextQuestion();
 	}
+};
 
+var validate = function() {
+	if($("input:radio:checked").val() === undefined) {
+		alert("You must select an option");
+	} else {
+		playGame();
+	}
 };
 
 $(document).ready(function() {
@@ -112,7 +114,7 @@ $(document).ready(function() {
 	});
 
 	$("#question").on("click", "#next", function() {
-		playGame();
+		validate();
 	});
 
 	$("#end").on("click", "#newGame", function() {
