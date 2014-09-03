@@ -1,3 +1,4 @@
+/*--- Game stat ---*/
 var gameState = {
 	score: 0,
 	currentQuestion: 0,
@@ -5,6 +6,7 @@ var gameState = {
 	index: 0
 };
 
+/*--- Slide setup ---*/
 var quizSetup = [
 	{
 		"question": "Where was the M*A*S*H team stationed?",
@@ -43,6 +45,7 @@ var quizSetup = [
 	}
 ];
 
+/*--- Add choices to questions ---*/
 var choices = function() {
 	document.getElementById("questionTable").innerHTML = "";
 
@@ -53,6 +56,7 @@ var choices = function() {
 	}
 };
 
+/*--- Question progress ---*/
 var nextQuestion = function() {
 
 	$("#newQuestion").text(quizSetup[gameState.currentQuestion]["question"]);
@@ -63,8 +67,9 @@ var nextQuestion = function() {
 	$("#left p").text(gameState.currentQuestion+1 + "/" + quizSetup.length);
 };
 
+/*--- Go through quiz ---*/
 var playGame = function() {
-	if($('input:radio:checked').val() == quizSetup[gameState.currentQuestion]["answer"]) {
+	if($('input:radio:checked').val() === quizSetup[gameState.currentQuestion]["answer"]) {
 		gameState.score += 20;
 		gameState.correctAnswers++;
 	}
@@ -85,6 +90,7 @@ var playGame = function() {
 	}
 };
 
+/*--- Validate that radio button is checked ---*/
 var validate = function() {
 	if($("input:radio:checked").val() === undefined) {
 		alert("You must select an option");
@@ -113,6 +119,7 @@ $(document).ready(function() {
 		nextQuestion();
 	});
 
+	/*--- Mouse events ---*/
 	$("#question").on("click", "#next", function() {
 		validate();
 	});
@@ -120,4 +127,26 @@ $(document).ready(function() {
 	$("#end").on("click", "#newGame", function() {
 		location.reload(true);
 	});
+
+	/*--- Keyboard events ---*/
+	$("body").on("keypress", function(event) {
+		if(event.which == '115') {
+			event.preventDefault();
+			
+			$("#start").hide();
+			$("#question").show();
+
+			nextQuestion();
+		}
+
+		if(event.which == '13') {
+			event.preventDefault();
+			validate();
+		}
+		if(event.which == '110') {
+			event.preventDefault();
+			location.reload(true);
+		}
+	});
+
 });

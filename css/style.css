@@ -5,10 +5,11 @@ html, body, header, section, #start, #header, #left, #center, #right, .question,
 
 body {
 	font-family: "Lucida Console";
-	font-size: em;
+	
 	background-color: #808A8A;
 }
 
+/*--- Header fields ---*/
 #header {
 	margin: 0 auto;
 	margin-top: 20px;
@@ -39,6 +40,7 @@ body {
 	text-align: center;
 }
 
+/*--- Resize boxes ---*/
 #windowBox {
 	margin: auto;
 	height: 100%;
@@ -55,11 +57,11 @@ body {
 	text-align: center;
 }
 
+/*--- Intro page ---*/
 #start {
-	/*display: none;*/
 	margin: 0 auto;
-	width: 75%;
-	height: 50%;
+	width: 55%;
+	height: 75%;
 }
 
 #start p, #end p {
@@ -67,25 +69,12 @@ body {
 	text-align: center;
 }
 
+/*--- Questions ---*/
 #question {
 	display: none;
 	margin: 0 auto;
 	width: 50%;
 	height: 75%;
-}
-
-#question img, #start img {
-	display: block;
-	margin: 0 auto;
-	margin-top: 25px;
-	max-width: 100%;
-	height: 225px;
-	width: 350px;
-}
-
-#start img, #end img {
-	height: 300px;
-	width: 400px;
 }
 
 #question p {
@@ -99,11 +88,27 @@ table {
 	text-align: left;
 }
 
+/*--- Images ---*/
+#question img, #start img, #end img {
+	display: block;
+	margin: 0 auto;
+	margin-top: 25px;
+	max-width: 100%;
+	height: 225px;
+	width: 350px;
+}
+
+#start img, #end img {
+	height: 300px;
+	width: 400px;
+}
+
+/*--- Buttons ---*/
 .button {
 	margin: 0 auto;
 	margin-top: 25px;
 	height: 35px;
-	width: 62px;
+	width: 50%;
 }
 
 #startGame, #answerCheck, #next, #newGame {
@@ -119,6 +124,7 @@ table {
 	display: none;
 }
 
+/*--- End page ---*/
 #end {
 	display: none;
 	margin: 0 auto;
