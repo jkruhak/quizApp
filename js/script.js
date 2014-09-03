@@ -88,6 +88,18 @@ var playGame = function() {
 };
 
 $(document).ready(function() {
+	/*--- Window resize ---*/
+	function setHeight() {
+		windowHeight = $(window).innerHeight();
+		$('#windowBox').css('min-height', windowHeight);
+	};
+	
+	setHeight();
+
+	$(window).resize(function() {
+		setHeight();
+	});
+	
 	$("#start").on("click", "#startGame", function() {
 		$("#start").hide();
 		$("#question").show();
