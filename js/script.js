@@ -10,35 +10,35 @@ var gameState = {
 var quizSetup = [
 	{
 		"question": "Where was the M*A*S*H team stationed?",
-		"image": "<img src='images/question1.jpg' alt='Question One'>",
+		"image": "<img src='images/question1.jpg' alt='Picture for Question One'>",
 		"choices": ["South Korea", "Vietnam", "Iraq", "Russia"],
 		"answer": "choice1",
 		"correctAnswer": "M*A*S*H team was stationed in South Korea"
 	},
 	{
 		"question": "What was Corporal O'Riley's favorite drink?",
-		"image": "<img src='images/question2.jpg' alt='Question Two'>",
+		"image": "<img src='images/question2.jpg' alt='Picture for Question Two'>",
 		"choices": ["Beer", "Orange Soda", "Grape Nehi", "Coca-Cola"],
 		"answer": "choice3",
 		"correctAnswer": "Corporal O'Riley's favorite drink was Grape Nehi"
 	},
 	{
 		"question": "Which actor played the role of Hawkeye?",
-		"image": "<img src='images/question3.jpg' alt='Question Three'>",
+		"image": "<img src='images/question3.jpg' alt='Picture for Question Three'>",
 		"choices": ["Jamie Farr", "Alan Alda", "Larry Linville", "Charles S. Dubin"],
 		"answer": "choice2",
 		"correctAnswer": "Alan Alda played the part of Hawkeye"
 	},
 	{
 		"question": "What happend to Lt. Colonel Henry Blake?",
-		"image": "<img src='images/question4.jpg' alt='Question Four'>",
+		"image": "<img src='images/question4.jpg' alt='Picture for Question Four'>",
 		"choices": ["He was sent home", "He was sent to a different unit", "He went AWOL", "He died in a plane crash"],
 		"answer": "choice4",
 		"correctAnswer": "Lt. Colonel Henry Blake died in a plane crash on his way back home"
 	},
 	{
 		"question": "What was Major Margaret Houlihan's nickname?",
-		"image": "<img src='images/question5.jpg' alt='Question Five'>",
+		"image": "<img src='images/question5.jpg' alt='Picture for Question Five'>",
 		"choices": ["Hotstuff", "Hell nurse", "Hotlips", "Maggie"],
 		"answer": "choice3",
 		"correctAnswer": "Major Margaret Houlihan's nickname was Hotlips"
